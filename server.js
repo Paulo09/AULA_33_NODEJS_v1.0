@@ -8,9 +8,18 @@ app.get('/teste1', function(request,response){
 
 })
 
-app.get('/teste2', function(request,response){
-     
-    return response.send("Teste2");
+app.get('/teste/:id', function(request,response){
+    
+    const id = request.params.id;
+    return response.send("Teste:"+id);
+
+})
+
+
+app.get('/teste/:id/:outro', function(request,response){
+    const id = request.params.id;
+    const outro = request.params.outro;
+    return response.send("Teste:"+id+"-"+"Outro:"+outro);
 
 })
 
