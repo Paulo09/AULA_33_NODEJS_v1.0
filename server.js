@@ -23,6 +23,11 @@ app.get('/teste/:id/:outro', function(request,response){
 
 })
 
+app.get('/query',function(request,response){
+    const dados = request.query;
+    return response.send("Querys:"+dados.nome + dados.sobrenome);
+})
+
 
 app.get('/teste3', function(request,response){
      
