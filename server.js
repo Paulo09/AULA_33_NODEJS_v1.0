@@ -35,6 +35,56 @@ app.get('/teste3', function(request,response){
 
 })
 
+// Crud de usuários
+
+// CRUD - USUARIOS
+app.get('/usuarios', function(request, response) {
+    // CONEXAO COM BANCO E FAÇO UM SELECT EM USUARIOS
+    response.json([
+        {
+            id: 1,
+            nome: "Max"
+        }
+    ]);
+});
+
+app.post('/usuarios', function(request, response) {
+    const body = request.body;
+    // CONEXAO COM BANCO E FAÇO UM INSERT EM USUARIOS
+    response.json([
+        {
+            id: 1,
+            nome: "Max"
+        }
+    ]);
+});
+
+app.put('/usuarios/:id', function(request, response) {
+    const id = request.params.id;
+    const body = request.body;
+    // CONEXAO COM BANCO E FAÇO UM UPDATE EM USUARIOS
+    response.json([
+        {
+            id: 1,
+            nome: "Max"
+        }
+    ]);
+});
+
+
+app.delete('/usuarios/:id', function(request, response) {
+    const id = request.params.id;
+    // CONEXAO COM BANCO E FAÇO UM DELETE EM USUARIOS
+    // DELETE FROM usuarios WHERE id = 1
+    response.json([
+        {
+            id: 1,
+            nome: "Max"
+        }
+    ]);
+});
+
+
 
 app.listen(8000,function() {
    console.log("Servidor Executando.....");    
