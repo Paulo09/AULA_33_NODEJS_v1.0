@@ -43,7 +43,7 @@ app.get('/usuarios', function(request, response) {
     response.json([
         {
             id: 1,
-            nome: "Max"
+            nome: "Max2"
         }
     ]);
 });
