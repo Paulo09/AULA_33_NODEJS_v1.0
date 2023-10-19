@@ -1,4 +1,8 @@
 import express, { request, response } from "express";
+
+import Connection from "./config/Connection.js";
+
+
 const app = express();
 
 
@@ -38,7 +42,7 @@ app.get('/teste3', function(request,response){
 // Crud de usuários
 
 // CRUD - USUARIOS
-app.get('/usuarios', function(request, response) {
+app.post('/usuarios', function(request, response) {
     // CONEXAO COM BANCO E FAÇO UM SELECT EM USUARIOS
     response.json([
         {
@@ -48,15 +52,17 @@ app.get('/usuarios', function(request, response) {
     ]);
 });
 
-app.post('/usuarios', function(request, response) {
+app.get('/usuarios', function(request, response) {
     const body = request.body;
-    // CONEXAO COM BANCO E FAÇO UM INSERT EM USUARIOS
-    response.json([
-        {
-            id: 1,
-            nome: "Max"
-        }
-    ]);
+
+    const connect = new Connection();
+
+    connect.query("SELECT * FROM usuarios",{},function(error,results){
+
+        response.json(results);
+
+    })
+    
 });
 
 app.put('/usuarios/:id', function(request, response) {
