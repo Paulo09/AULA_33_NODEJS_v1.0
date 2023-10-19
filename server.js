@@ -65,6 +65,14 @@ app.get('/usuarios', function(request, response) {
     
 });
 
+app.get('/usuarios/:id', function(request, response) {
+    const id = request.params.id;
+    const connect = new Connection();
+    connect.query("SELECT * FROM usuarios WHERE id = "+id, {}, function(error, results) {
+        response.json(results);
+    })
+});
+
 app.put('/usuarios/:id', function(request, response) {
     const id = request.params.id;
     const body = request.body;
